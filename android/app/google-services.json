@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "780820653028",
+    "project_id": "bloc-auth-fb-flutter",
+    "storage_bucket": "bloc-auth-fb-flutter.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:780820653028:android:1059fb064373cfb2815df1",
+        "android_client_info": {
+          "package_name": "com.example.firebase_auth_bloc"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD1aTj2Fr4eL2h73KPLMoJJNUUy3SWi3j4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
