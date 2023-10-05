@@ -1,4 +1,4 @@
-import 'package:firebase_auth_bloc/repositories/auth_repository.dart';
+import 'package:firebase_auth_bloc/blocs/auth/auth_bloc.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -25,7 +25,7 @@ class _HomePageState extends State<HomePage> {
           actions: [
             IconButton(
               onPressed: () {
-                context.read<AuthRepository>().signout();
+                context.read<AuthBloc>().add(SignoutRequestedEvent());
               },
               icon: const Icon(Icons.logout),
             ),
@@ -52,13 +52,9 @@ class _HomePageState extends State<HomePage> {
                 children: [
                   Image.asset(
                     'assets/images/bloc_logo_full.png',
-                    width: 100,
+                    width: MediaQuery.of(context).size.width * 0.8,
                   ),
                   const SizedBox(width: 20.0),
-                  const Text(
-                    'Bloc',
-                    style: TextStyle(fontSize: 42.0),
-                  )
                 ],
               ),
               const SizedBox(height: 20.0),

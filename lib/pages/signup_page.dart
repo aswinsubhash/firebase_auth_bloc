@@ -3,6 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:validators/validators.dart';
 
 import '../blocs/signup/signup_cubit.dart';
+import '../utils/error_dialogue.dart';
 
 class SignupPage extends StatefulWidget {
   static const String routeName = '/signup';
@@ -43,7 +44,12 @@ class _SignupPageState extends State<SignupPage> {
     return GestureDetector(
       onTap: () => FocusScope.of(context).unfocus(),
       child: BlocConsumer<SignupCubit, SignupState>(
-        listener: (context, state) {},
+        listener: (context, state) {
+           if (state.signupStatus == SignupStatus.error) {
+            print('signup error');
+            errorDialog(context, state.customError);
+          }
+        },
         builder: (context, state) {
           return Scaffold(
             body: Center(
