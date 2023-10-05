@@ -30,7 +30,6 @@ class _SignupPageState extends State<SignupPage> {
 
     form.save();
 
-    print('name: $_name, email: $_email, password: $_password');
 
     context.read<SignupCubit>().signup(
           name: _name!,
@@ -46,7 +45,6 @@ class _SignupPageState extends State<SignupPage> {
       child: BlocConsumer<SignupCubit, SignupState>(
         listener: (context, state) {
            if (state.signupStatus == SignupStatus.error) {
-            print('signup error');
             errorDialog(context, state.customError);
           }
         },

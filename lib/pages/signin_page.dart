@@ -30,7 +30,6 @@ class _SigninPageState extends State<SigninPage> {
 
     form.save();
 
-    print('email: $_email, password: $_password');
 
     context.read<SigninCubit>().signin(email: _email!, password: _password!);
   }
