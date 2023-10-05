@@ -1,8 +1,9 @@
+
 import 'package:equatable/equatable.dart';
-import 'package:firebase_auth_bloc/repositories/auth_repository.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../models/custom_error.dart';
+import '../../repositories/auth_repository.dart';
 
 part 'signin_state.dart';
 
@@ -18,11 +19,15 @@ class SigninCubit extends Cubit<SigninState> {
 
     try {
       await authRepository.signin(email: email, password: password);
+
       emit(state.copyWith(signinStatus: SigninStatus.success));
     } on CustomError catch (e) {
-      emit(state.copyWith(signinStatus: SigninStatus.error, customError: e));
-
-      rethrow;
+      emit(
+        state.copyWith(
+          signinStatus: SigninStatus.error,
+          error: e,
+        ),
+      );
     }
   }
 }

@@ -44,7 +44,7 @@ class _SigninPageState extends State<SigninPage> {
         child: BlocConsumer<SigninCubit, SigninState>(
           listener: (context, state) {
             if (state.signinStatus == SigninStatus.error) {
-              errorDialog(context, state.customError);
+              errorDialog(context, state.error);
             }
           },
           builder: (context, state) {

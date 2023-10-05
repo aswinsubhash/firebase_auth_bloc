@@ -9,33 +9,33 @@ enum SigninStatus {
 
 class SigninState extends Equatable {
   final SigninStatus signinStatus;
-  final CustomError customError;
+  final CustomError error;
   const SigninState({
     required this.signinStatus,
-    required this.customError,
+    required this.error,
   });
 
   factory SigninState.initial() {
     return const SigninState(
       signinStatus: SigninStatus.initial,
-      customError: CustomError(),
+      error: CustomError(),
     );
   }
 
   @override
-  List<Object> get props => [signinStatus, customError];
+  List<Object> get props => [signinStatus, error];
 
   @override
   String toString() =>
-      'SigninState(signinStatus: $signinStatus, customError: $customError)';
+      'SigninState(signinStatus: $signinStatus, error: $error)';
 
   SigninState copyWith({
     SigninStatus? signinStatus,
-    CustomError? customError,
+    CustomError? error,
   }) {
     return SigninState(
       signinStatus: signinStatus ?? this.signinStatus,
-      customError: customError ?? this.customError,
+      error: error ?? this.error,
     );
   }
 }
